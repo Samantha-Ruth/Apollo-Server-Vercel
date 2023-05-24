@@ -8,10 +8,11 @@ import cors from "cors";
 // JSON middleware to enable body data parsing so server can interpret POST requests
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-const httpServer = http.createServer(app);
 
+const httpServer = http.createServer(app);
 
 // Basic query and matching resolver to test Apollo server is working
 const typeDefs = gql`
@@ -33,7 +34,7 @@ const startApolloServer = async(app, httpServer) => {
       typeDefs,
       resolvers,
         // Use ApolloServer drain plug in to add functionalities to Apollo Server
-        plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+      plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     });
 
     // The start method of the Apollo server instance is asynchronous, which is handled with an await
