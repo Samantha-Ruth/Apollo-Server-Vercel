@@ -26,7 +26,7 @@ const resolvers = {
   },
 };
 
-// Method to bootstrap our Apollo werver and attach it to Express app as simple middleware
+// Method to bootstrap our Apollo server and attach it to Express app as simple middleware
 
 const startApolloServer = async(app, httpServer) => {
     const server = new ApolloServer({
